@@ -15,7 +15,15 @@
 
 ---
 
-### 🚀 About The Project
+### 🚀 About# VolunteerSync - Modern NGO Management Platform
+
+## 📱 Mobile Optimized
+
+Now fully responsive with:
+
+- **Glassmorphism UI** adapted for mobile.
+- **iOS Optimizations** (Safe areas, viewport fixes).
+- **Touch-friendly** navigation and tables.
 
 **VolunteerSync** is a next-generation platform designed for modern NGOs to manage their operations seamlessly. Built with a premium **Glassmorphism** aesthetic, it offers a visually stunning and highly functional interface for coordinating events, tracking volunteers, and visualizing impact.
 
