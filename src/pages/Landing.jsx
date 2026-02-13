@@ -12,20 +12,20 @@ const Landing = () => {
             </div>
 
             {/* Navbar */}
-            <nav className="fixed top-0 left-0 right-0 z-50 py-4 px-4 md:py-6 md:px-6">
-                <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <div className="flex items-center gap-2 md:gap-3 group cursor-pointer">
+            <nav className="fixed top-0 left-0 right-0 z-50 py-6 px-6">
+                <div className="max-w-7xl mx-auto glass-panel border border-white/10 px-6 py-4 flex justify-between items-center bg-slate-950/40 backdrop-blur-2xl">
+                    <div className="flex items-center gap-3 group">
                         <div className="relative">
                             <div className="absolute inset-0 bg-cyan-500/50 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <HelpingHand className="w-6 h-6 md:w-8 md:h-8 text-cyan-400 relative z-10 transform group-hover:rotate-12 transition-transform duration-300" />
+                            <HelpingHand className="w-8 h-8 text-cyan-400 relative z-10 transform group-hover:rotate-12 transition-transform duration-300" />
                         </div>
-                        <span className="text-lg md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 tracking-wide">
+                        <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 tracking-wide">
                             VolunteerSync
                         </span>
                     </div>
                     <div className="flex items-center gap-6">
                         <a href="#features" className="hidden md:block text-slate-300 hover:text-white font-medium transition-colors">Features</a>
-                        <Link to="/dashboard" className="btn btn-primary px-4 py-2 md:px-6 md:py-2.5 rounded-full font-bold text-sm md:text-base flex items-center gap-2 group shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]">
+                        <Link to="/dashboard" className="btn btn-primary px-6 py-2 rounded-full font-bold flex items-center gap-2 group shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]">
                             Get Started <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
