@@ -115,24 +115,26 @@
 
 /* Global Styles */
 html, body {
-    overflow-x: hidden;
+    /* overflow-x: hidden; removed to prevent scroll locking */
     scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: var(--color-bg-darker);
     color: var(--color-text-main);
+    /* min-height: 100dvh; removed */
     min-height: 100vh;
-    min-height: 100dvh; /* iOS fix */
     font-family: var(--font-sans);
+    overflow-x: hidden; /* Keep on body only if needed, but safer to remove if sticky */
     
     /* Improved Moving Background */
     background-image: 
         radial-gradient(circle at 15% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 25%),
         radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08) 0%, transparent 25%);
     background-attachment: fixed;
-    /* Prevent pull-to-refresh on mobile if not needed, or handled by app */
-    overscroll-behavior-y: none;
+    /* overscroll-behavior-y: none; removed as it can block scroll */
 }
 
 /* Custom Scrollbar */
