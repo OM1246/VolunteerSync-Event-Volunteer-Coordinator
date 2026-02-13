@@ -108,31 +108,37 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="absolute top-full left-0 right-0 bg-slate-900-95 backdrop-blur-xl border-b border-white/10 p-4 md:hidden animate-slide-up flex flex-col gap-2 shadow-2xl">
-                    {navItems.map((item) => (
-                        <NavLink
-                            key={item.path}
-                            to={item.path}
+                <div className="fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-3xl pt-24 px-6 md:hidden animate-slide-up flex flex-col gap-4 h-[100dvh]">
+                    <div className="flex flex-col gap-2">
+                        {navItems.map((item) => (
+                            <NavLink
+                                key={item.path}
+                                to={item.path}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className={({ isActive }) => `
+                                    flex items-center gap-4 p-4 rounded-2xl transition-all text-lg font-medium
+                                    ${isActive 
+                                        ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/10 text-cyan-400 border border-cyan-500/20 shadow-[0_0_15px_rgba(34,211,238,0.1)]' 
+                                        : 'text-slate-400 hover:bg-white/5 hover:text-white'}
+                                `}
+                            >
+                                <item.icon className="w-6 h-6" />
+                                <span>{item.label}</span>
+                            </NavLink>
+                        ))}
+                    </div>
+                    
+                    <div className="mt-auto mb-8 space-y-4">
+                        <div className="h-px bg-white/10"></div>
+                        <NavLink 
+                            to="/"
                             onClick={() => setMobileMenuOpen(false)}
-                            className={({ isActive }) => `
-                                flex items-center gap-3 p-3 rounded-xl transition-all
-                                ${isActive 
-                                    ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/10 text-cyan-400 border border-cyan-500/20' 
-                                    : 'text-slate-400 hover:bg-white/5'}
-                            `}
+                            className="flex items-center gap-4 p-4 text-red-400 hover:bg-red-500/10 rounded-2xl transition-all text-lg font-medium"
                         >
-                            <item.icon className="w-5 h-5" />
-                            <span className="font-medium">{item.label}</span>
+                            <LogOut className="w-6 h-6" />
+                            <span>Logout</span>
                         </NavLink>
-                    ))}
-                    <div className="h-px bg-white/10 my-2"></div>
-                    <NavLink 
-                        to="/"
-                        className="flex items-center gap-3 p-3 text-red-400 hover:bg-red-500/10 rounded-xl"
-                    >
-                        <LogOut className="w-5 h-5" />
-                        <span>Logout</span>
-                    </NavLink>
+                    </div>
                 </div>
             )}
         </nav>

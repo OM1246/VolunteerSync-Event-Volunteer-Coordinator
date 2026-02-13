@@ -114,11 +114,16 @@
 }
 
 /* Global Styles */
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--color-bg-darker);
     color: var(--color-text-main);
-    overflow-x: hidden;
     min-height: 100vh;
+    min-height: 100dvh; /* iOS fix */
     font-family: var(--font-sans);
     
     /* Improved Moving Background */
@@ -126,6 +131,8 @@ body {
         radial-gradient(circle at 15% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 25%),
         radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08) 0%, transparent 25%);
     background-attachment: fixed;
+    /* Prevent pull-to-refresh on mobile if not needed, or handled by app */
+    overscroll-behavior-y: none;
 }
 
 /* Custom Scrollbar */
@@ -154,6 +161,13 @@ input, select, textarea {
     border-radius: 12px !important;
     transition: all 0.3s ease;
 }
+
+@media screen and (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important; /* Prevent iOS zoom */
+    }
+}
+
 input:focus, select:focus, textarea:focus {
     border-color: var(--color-primary) !important;
     box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.2) !important;
