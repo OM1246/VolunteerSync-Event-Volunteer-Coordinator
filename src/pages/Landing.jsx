@@ -25,7 +25,7 @@ const Landing = () => {
                     </div>
                     <div className="flex items-center gap-6">
                         <a href="#features" className="hidden md:block text-slate-300 hover:text-white font-medium transition-colors">Features</a>
-                        <Link to="/dashboard" className="btn btn-primary px-6 py-2 rounded-full font-bold flex items-center gap-2 group shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]">
+                        <Link to="/get-started" className="btn btn-primary px-6 py-2 rounded-full font-bold flex items-center gap-2 group shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]">
                             Get Started <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
@@ -52,12 +52,9 @@ const Landing = () => {
                     </p>
                     
                     <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8 animate-slide-up delay-300">
-                        <Link to="/dashboard" className="btn btn-primary px-10 py-4 rounded-xl font-bold text-lg shadow-[0_10px_40px_-10px_rgba(34,211,238,0.5)] hover:shadow-[0_20px_60px_-15px_rgba(34,211,238,0.6)] hover:-translate-y-1 transition-all">
-                            Launch Dashboard
+                        <Link to="/get-started" className="btn btn-primary px-10 py-4 rounded-xl font-bold text-lg shadow-[0_10px_40px_-10px_rgba(34,211,238,0.5)] hover:shadow-[0_20px_60px_-15px_rgba(34,211,238,0.6)] hover:-translate-y-1 transition-all">
+                            Get Started
                         </Link>
-                        <a href="#features" className="px-10 py-4 rounded-xl glass-panel text-white font-bold text-lg hover:bg-white/5 hover:border-white/20 transition-all hover:-translate-y-1">
-                            Learn More
-                        </a>
                     </div>
                 </div>
             </header>

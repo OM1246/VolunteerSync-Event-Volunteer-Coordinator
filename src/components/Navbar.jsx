@@ -9,7 +9,8 @@ import {
     LogOut, 
     HelpingHand,
     Menu,
-    X
+    X,
+    CheckCircle
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -25,13 +26,33 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navItems = [
-        { path: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-        { path: '/events', icon: Calendar, label: 'Events' },
-        { path: '/volunteers', icon: Users, label: 'Volunteers' },
-        { path: '/reports', icon: BarChart3, label: 'Reports' },
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+        setUser(userInfo);
+    }, [location]); // Re-check on route change
+
+    const volunteerItems = [
+        { path: '/volunteer/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+        { path: '/volunteer/events', icon: Calendar, label: 'Events' },
+        { path: '/volunteer/my-activity', icon: CheckCircle, label: 'My Activity' },
         { path: '/notifications', icon: Bell, label: 'Notifications' },
     ];
+
+    const hostItems = [
+        { path: '/host/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+        { path: '/host/create-event', icon: Calendar, label: 'Create Event' },
+        { path: '/host/my-events', icon: BarChart3, label: 'My Events' },
+        { path: '/notifications', icon: Bell, label: 'Notifications' },
+    ];
+
+    const navItems = user?.role === 'host' ? hostItems : volunteerItems;
+
+    const handleLogout = () => {
+        localStorage.removeItem('userInfo');
+        setUser(null);
+    };
 
     const isLanding = location.pathname === '/';
 
@@ -91,7 +112,7 @@ const Navbar = () => {
                         <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border border-slate-900"></span>
                     </button>
                     <div className="h-8 w-px bg-white/10"></div>
-                    <NavLink to="/" className="flex items-center gap-2 text-slate-400 hover:text-red-400 transition-colors text-sm font-medium group">
+                    <NavLink to="/" onClick={handleLogout} className="flex items-center gap-2 text-slate-400 hover:text-red-400 transition-colors text-sm font-medium group">
                         <LogOut className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                         <span>Logout</span>
                     </NavLink>
@@ -132,7 +153,10 @@ const Navbar = () => {
                         <div className="h-px bg-white/10"></div>
                         <NavLink 
                             to="/"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={() => {
+                                setMobileMenuOpen(false);
+                                handleLogout();
+                            }}
                             className="flex items-center gap-4 p-4 text-red-400 hover:bg-red-500/10 rounded-2xl transition-all text-lg font-medium"
                         >
                             <LogOut className="w-6 h-6" />
